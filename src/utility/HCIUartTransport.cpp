@@ -90,6 +90,6 @@ size_t HCIUartTransportClass::write(const uint8_t* data, size_t length)
 #ifdef ARDUINO_AVR_UNO_WIFI_REV2
 HCIUartTransportClass HCIUartTransport(SerialHCI, 119600);
 #else
-HCIUartTransportClass HCIUartTransport(SerialHCI, 912600);
+HCIUartTransportClass HCIUartTransport(SerialHCI, 115200);
 #endif
 HCITransportInterface& HCITransport = HCIUartTransport;
