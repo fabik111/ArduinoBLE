@@ -23,7 +23,7 @@
 
 #if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_AVR_UNO_WIFI_REV2)
 #define SerialHCI Serial2
-#elif defined(ARDUINO_SAMD_NANO_33_IOT)
+#elif defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_SAMD_NANO_33_IOT_COEX)
 // SerialHCI is already defined in the variant
 #else
 #error "Unsupported board selected!"
@@ -89,7 +89,7 @@ size_t HCIUartTransportClass::write(const uint8_t* data, size_t length)
   return result;
 }
 
-#ifdef ARDUINO_AVR_UNO_WIFI_REV2
+#if defined(ARDUINO_AVR_UNO_WIFI_REV2 ) || defined(ARDUINO_SAMD_NANO_33_IOT_COEX)
 HCIUartTransportClass HCIUartTransport(SerialHCI, 119600);
 #else
 HCIUartTransportClass HCIUartTransport(SerialHCI, 912600);
