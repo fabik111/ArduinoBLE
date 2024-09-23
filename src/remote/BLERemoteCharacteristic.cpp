@@ -99,7 +99,6 @@ int BLERemoteCharacteristic::write(const uint8_t value[], int length, bool withR
     length = maxLength;
   }
 
-   Serial.println("att write length: "+length);
   _value = (uint8_t*)realloc(_value, length);
   if (_value == NULL) {
     // realloc failed
@@ -153,7 +152,6 @@ int BLERemoteCharacteristic::writeValue(const uint8_t value[], int length, bool 
     length = maxLength;
   }
 
-   Serial.println("att write length: "+length);
   _value = (uint8_t*)realloc(_value, length);
   if (_value == NULL) {
     // realloc failed
