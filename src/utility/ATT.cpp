@@ -598,6 +598,11 @@ BLEDevice ATTClass::central()
   return BLEDevice();
 }
 
+bool ATTClass::handleNotify(uint16_t handle, const uint8_t *value, int length)
+{
+  return handleNotify(handle, value, (uint16_t*)&length);
+}
+
 bool ATTClass::handleNotify(uint16_t handle, const uint8_t* value, uint16_t *length)
 {
   int numNotifications = 0;
@@ -627,6 +632,11 @@ bool ATTClass::handleNotify(uint16_t handle, const uint8_t* value, uint16_t *len
   }
 
   return (numNotifications > 0);
+}
+
+bool ATTClass::handleInd(uint16_t handle, const uint8_t *value, int length)
+{
+  return handleInd(handle, value, (uint16_t*)&length);
 }
 
 bool ATTClass::handleInd(uint16_t handle, const uint8_t* value, uint16_t *length)
